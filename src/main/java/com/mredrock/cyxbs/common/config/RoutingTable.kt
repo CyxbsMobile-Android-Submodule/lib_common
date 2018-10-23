@@ -12,3 +12,8 @@ const val COURSE = "/$GROUP_COURSE/entry"
 const val QA_ENTRY = "/$GROUP_QA/entry"
 const val EXPLORE_ENTRY = "/$GROUP_EXPLORE/entry"
 const val MINE_ENTRY = "/$GROUP_MINE/entry"
+
+// LoginActivity
+const val LOGIN_ACTIVITY = "/main/login"
+// NoCourseInviteActivity
+const val NO_COURSE_INVITE_ACTIVITY = "$GROUP_COURSE/no_course_invite_activity"
