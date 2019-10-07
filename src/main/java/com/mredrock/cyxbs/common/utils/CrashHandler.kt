@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import android.util.Log
 import com.mredrock.cyxbs.common.BuildConfig
 import com.mredrock.cyxbs.common.ui.ExceptionActivity
 import java.io.PrintWriter
@@ -30,6 +31,7 @@ object CrashHandler : Thread.UncaughtExceptionHandler {
         if (defaultHandler == this) {
             return
         }
+        Log.d("optimize","CrashHandler init")
         this.context = context
         this.defaultHandler = defaultHandler
         Thread.setDefaultUncaughtExceptionHandler(this)
