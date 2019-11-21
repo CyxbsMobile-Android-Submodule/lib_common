@@ -29,4 +29,5 @@ class User {
     val phone get() = userService.getPhone()
     val photoSrc get() = photoThumbnailSrc
 
+
 }

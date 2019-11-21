@@ -25,6 +25,11 @@ const val DISCOVER_VOLUNTEER = "/volunteer/discover/entry"
 const val DISCOVER_SCHOOL_CAR = "/school_car/discover/entry"
 const val DISCOVER_NEWS = "/news/discover/entry"
 
+//教务新闻子项入口
+const val DISCOVER_NEWS_ITEM = "/news/discover/item"
+
+//签到页
+const val MINE_CHECK_IN = "/check_in/mine/entry"
 // NoCourseInviteActivity
 const val COURSE_NO_COURSE_INVITE = "/course/no_course_invite_activity"
 
@@ -47,3 +52,4 @@ const val FRESHMAN_ENTRY = "/freshman/entry"
 
 //账号服务
 const val ACCOUNT_SERVICE = "/account/service"
+
