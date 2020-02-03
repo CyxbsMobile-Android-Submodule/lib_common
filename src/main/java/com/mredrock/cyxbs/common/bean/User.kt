@@ -2,8 +2,8 @@ package com.mredrock.cyxbs.common.bean
 
 
 import com.mredrock.cyxbs.common.BaseApp
-import com.mredrock.cyxbs.common.service.account.IAccountService
 import com.mredrock.cyxbs.common.service.ServiceManager
+import com.mredrock.cyxbs.common.service.account.IAccountService
 import com.mredrock.cyxbs.common.utils.extensions.defaultSharedPreferences
 
 /**

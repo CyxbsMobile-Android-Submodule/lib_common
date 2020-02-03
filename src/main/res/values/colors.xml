@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary" tools:ignore="ResourceName">#58B1FC</color>
+    <color name="colorPrimary" tools:ignore="ResourceName">#ffffff</color>
     <color name="colorPrimaryDark" tools:ignore="ResourceName">#798DFA</color>
     <color name="colorAccent" tools:ignore="ResourceName">#788EFA</color>
 
@@ -9,16 +9,18 @@
 
     <!--    整体灰色背景-->
     <color name="windowBackground" tools:ignore="ResourceName">#F2F3F8</color>
-    <!--    整体深灰二级背景-->
+    <!--    整体淡灰二级背景-->
     <color name="secondaryWindowBackground" tools:ignore="ResourceName">#F8F9FC</color>
-
+    <color name="chosenBackground" tools:ignore="ResourceName">#E5EAF2</color>
 
     <!--    纯白色背景和纯白色字体-->
     <color name="whiteBackground" tools:ignore="ResourceName">#ffffff</color>
     <color name="whiteFontColor" tools:ignore="ResourceName">#ffffff</color>
 
+    <color name="transparentBackground" tools:ignore="ResourceName">#00000000</color>
 
-    <!--    主要字体颜色分以下四种，下列按照蓝色由浅到深排序，要用自取-->
+
+    <!--    主要字体颜色分以下四种，下列按照蓝色由深到浅排序，要用自取-->
     <!--    一级字体颜色-->
     <color name="levelOneFontColor" tools:ignore="ResourceName">#112C54</color>
     <!--    二级字体颜色-->
@@ -28,12 +30,13 @@
     <!--    四级字体颜色-->
     <color name="levelFourFontColor" tools:ignore="DuplicateDefinition,ResourceName">#2A4E84</color>
 
+    <color name="courseDeleteButtonTextColor" tools:ignore="ResourceName">#7CA3DF</color>
+
 
     <!--    底部tab未聚焦字体颜色-->
     <color name="unFocusedFontColor" tools:ignore="ResourceName">#AABCD8</color>
     <!--    底部tab聚焦字体颜色-->
     <color name="focusedFontColor" tools:ignore="ResourceName">#2923D2</color>
-
 
 
     <!--    课表可上拉下拉标识小块背景-->
@@ -53,25 +56,121 @@
     <!--    备忘灰色条纹-->
     <color name="memoGrayStripes" tools:ignore="ResourceName">#E8EBEF</color>
 
+    <color name="courseAffairYouMightRecycleItemBackgroudColor" tools:ignore="ResourceName">#99F2F3F7</color>
 
     <!--    发现教务在线方框背景-->
     <color name="discoveryJwzxBackground" tools:ignore="ResourceName">#AFD2FB</color>
 
-
+    <color name="commonDefaultDivideLineColor">#19f8f9fc</color>
     <!--    按钮渐变起始颜色-->
     <color name="buttonGradientStartColor" tools:ignore="ResourceName">#4841E2</color>
     <!--    按钮渐变终止颜色-->
     <color name="buttonGradientEndColor" tools:ignore="ResourceName">#4841E2</color>
 
+    <!--    事务dialog删除按钮背景颜色-->
+    <color name="courseAffairDeleteButtonBackgroundColor" tools:ignore="ResourceName">#E6EFFC
+    </color>
+
+    <!--    事务dialog，修改按钮渐变颜色，这个居然和通用渐变不是一个颜色，不科学-->
+    <color name="courseAffairModifyButtonGradientStartColor" tools:ignore="ResourceName">#2921D1
+    </color>
+    <color name="courseAffairModifyButtonGradientEndColor" tools:ignore="ResourceName">#5D5DF7
+    </color>
+
+    <!--    添加事务时标题-->
+    <color name="transactionHeading" tools:ignore="ResourceName">#122D55</color>
+    <!--    添加事务时周数选择时，点击后字体颜色-->
+    <color name="selectFontColorForTransactionWeeks" tools:ignore="ResourceName">#FFA192</color>
 
 
+    <!--    打字框背景颜色-->
+    <color name="writeAbleAreaBackgroundShallow" tools:ignore="ResourceName">#EFF4FD</color>
+    <color name="writeAbleAreaBackgroundDark" tools:ignore="ResourceName">#E8F0FC</color>
 
     <!--    我的-->
     <!--    签到页面TextView颜色-->
     <color name="blueSignTextColor" tools:ignore="ResourceName">#839BFA</color>
+    <!--    分割线颜色-->
+    <color name="severViewColor" tools:ignore="ResourceName">#BDCCE5</color>
+    <color name="alphaSeverViewColor" tools:ignore="ResourceName">#39BDCCE5</color>
+    <color name="blueButton" tools:ignore="ResourceName">#2921D1</color>
+
+    <color name="greyButton" tools:ignore="ResourceName">#E1DFE0</color>
+    <color name="greyButtonText" tools:ignore="ResourceName">#C3C0C1</color>
+    <color name="greyText" tools:ignore="ResourceName">#C4C2C2</color>
+    <color name="switchOff" tools:ignore="ResourceName">#C3D4EE</color>
+
+    <color name="mine_tablayout_text_unselected" tools:ignore="ResourceName">#8f15315B</color>
+    <color name="mine_tablayout_indicator_color" tools:ignore="ResourceName">#1AD0F2</color>
+
+    <color name="mine_about_text_color_normal" tools:ignore="ResourceName">#294169</color>
+    <color name="mine_about_text_color_blue" tools:ignore="ResourceName">#0BCCF0</color>
+    <color name="mine_sign_bg_grey" tools:ignore="ResourceName">#E1E6F0</color>
+    <color name="mine_sign_divider_grey" tools:ignore="ResourceName">#E1E6F0</color>
+    <color name="mine_sign_divider_blue" tools:ignore="ResourceName">#3A35D2</color>
+    <color name="mine_sign_divider_blue_light" tools:ignore="ResourceName">#B3E5FC</color>
+    <color name="mine_sign_integral_text" tools:ignore="ResourceName">#4841E2</color>
+
+    <color name="mine_sign_integral_text_background" tools:ignore="ResourceName">#D4DAFF</color>
+    <color name="mine_sign_store_round_brown_background" tools:ignore="ResourceName">#F8E2DF</color>
+    <color name="mine_sign_store_line" tools:ignore="ResourceName">#E2EDFB</color>
+    <color name="mine_sign_store_item_tv_integral" tools:ignore="ResourceName">#3A34D2</color>
+    <color name="mine_sign_store_item_bg" tools:ignore="ResourceName">#F0F2FB</color>
+    <color name="mine_askpostedfm_tv_disappear_at" tools:ignore="ResourceName">#6C84AB</color>
+    <color name="mine_askpostedfm_btn_bg_accept" tools:ignore="ResourceName">#F7DAD7</color>
+    <color name="mine_askpostedfm_btn_accept" tools:ignore="ResourceName">#FFA192</color>
+    <color name="mine_main_btn_gradient_start" tools:ignore="ResourceName">#4841E2</color>
+    <color name="mine_main_btn_gradient_end" tools:ignore="ResourceName">#5D5DF7</color>
 
 
+    <!--    邮问-->
+    <!--    当前时间颜色-->
+    <color name="qa_question_current_time_color" tools:ignore="ResourceName">#ff2a4e84</color>
+    <!--    问题tab下标颜色-->
+    <string name="qa_question_tab_indicator_color" tools:ignore="ResourceName">#1ad0f2</string>
+    <!--    问题item的昵称颜色-->
+    <color name="qa_question_item_nickname_color" tools:ignore="ResourceName">#555555</color>
+    <!--    问题item的积分奖励字体颜色-->
+    <color name="qa_question_item_reward_color" tools:ignore="ResourceName">#777777</color>
+    <!--    问题item的下面的各类数字颜色-->
+    <color name="qa_question_bottom_count_color" tools:ignore="ResourceName">#2A4E84</color>
+    <!--    问题item的分割线颜色-->
+    <color name="qa_question_recycler_item_divide_line_color" tools:ignore="ResourceName">#BDCCE5</color>
+    <!--    评论内容颜色-->
+    <color name="qa_comment_content_color" tools:ignore="ResourceName">#3B4555</color>
+    <!--    回答发布时间颜色-->
+    <color name="qa_answer_publish_at_color" tools:ignore="ResourceName">#ff2a4e84</color>
+    <!--    回答被采纳的标签颜色-->
+    <color name="qa_answer_list_adopted_color" tools:ignore="ResourceName">#94A6C4</color>
+    <!--    提问选择类型的背景颜色-->
+    <color name="qa_quiz_select_type_background_color" tools:ignore="ResourceName">#E8F0FC</color>
+    <!--    提问选择类型的文字颜色-->
+    <color name="qa_quiz_select_type_text_color" tools:ignore="ResourceName">#94A6C4</color>
+    <!--    提问选中类型的文字颜色-->
+    <color name="qa_quiz_selected_type_text_color" tools:ignore="ResourceName">#FFA192</color>
+    <!--    提问选中类型的背景颜色，指定78的透明度-->
+    <color name="qa_quiz_selected_type_background_color" tools:ignore="ResourceName">#c3F7DAD7</color>
+    <!--    提问标题框和内容框的背景颜色，指定69的透明度-->
+    <color name="qa_quiz_new_text_background_color" tools:ignore="ResourceName">#acE8F0FC</color>
+    <!--    举报弹窗的提示文字颜色，指定61的透明度-->
+    <color name="qa_question_report_text_background_color" tools:ignore="ResourceName">#9815315B</color>
+    <!--    举报弹窗的分割线颜色，指定4的透明度-->
+    <color name="qa_question_report_divide_line_background_color" tools:ignore="ResourceName">#0a15315B</color>
 
+    <!--    登陆下面的灰色字体-->
+    <color name="logInToTheGrayFontBelow" tools:ignore="ResourceName">#ABBCD8</color>
+
+    <!--    添加事务下面按钮的光晕渐变结束颜色-->
+    <color name="course_end_of_light" tools:ignore="ResourceName">#006B65EF</color>
+
+    <!--    添加事务页面的圆角shape背景-->
+    <color name="course_affair_add_backgroud" tools:ignore="ResourceName">#F2F3F7</color>
+
+    <!--    添加事务的气泡颜色-->
+    <color name="course_affair_bubble_color" tools:ignore="ResourceName">#DFE6FF</color>
+
+    <!--    退出编辑dialog二级字体颜色-->
+    <color name="dialog_exit_subtitle_text_color" tools:ignore="ResourceName">#2A4E84</color>
 
 </resources>
 
