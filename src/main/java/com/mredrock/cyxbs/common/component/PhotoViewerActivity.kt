@@ -1,8 +1,10 @@
 package com.mredrock.cyxbs.common.component
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.LayoutRes
@@ -14,8 +16,8 @@ import com.github.chrisbanes.photoview.PhotoView
 import com.mredrock.cyxbs.common.R
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.utils.extensions.setFullScreen
+import com.mredrock.cyxbs.common.utils.extensions.startActivity
 import kotlinx.android.synthetic.main.common_activity_photo_viewer.*
-import org.jetbrains.anko.startActivity
 
 /**
  * Create By Hosigus at 2019/8/7
@@ -52,7 +54,18 @@ open class PhotoViewerActivity : BaseActivity() {
         mAdapter = object : BasePagerAdapter<PhotoView, String>(list) {
             override fun createView(context: Context) = PhotoView(context)
             override fun PhotoView.initView(mData: String, mPos: Int) {
-                mImgManager.load(mData).thumbnail(thumbnail).into(this)
+                //应对教务在线使用base64的图片，暂时想到这样解决，有其他方式改改
+                if (mData.startsWith("data:image/png;base64")) {
+                    val source = mData.removePrefix("data:image/png;base64")
+                    try {
+                        val bitmapArray = Base64.decode(source, Base64.DEFAULT)
+                        mImgManager.load(BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.size)).thumbnail(thumbnail).into(this)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                } else {
+                    mImgManager.load(mData).thumbnail(thumbnail).into(this)
+                }
                 setOnClickListener { onPhotoClick(mData, mPos) }
                 setOnLongClickListener { onLongClick(mData, mPos) }
             }

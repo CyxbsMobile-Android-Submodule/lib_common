@@ -2,27 +2,28 @@ package com.mredrock.cyxbs.common.ui
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import com.mredrock.cyxbs.common.component.CyxbsToast
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.common.viewmodel.event.ProgressDialogEvent
-import org.jetbrains.anko.indeterminateProgressDialog
-import org.jetbrains.anko.longToast
-import org.jetbrains.anko.toast
 
 /**
  * Created By jay68 on 2018/8/23.
+ * todo 更换ProgressDialog，官方已经舍弃
  */
 abstract class BaseViewModelActivity<T : BaseViewModel> : BaseActivity() {
-    protected lateinit var viewModel: T
+    lateinit var viewModel: T
 
     protected abstract val viewModelClass: Class<T>
 
     private var progressDialog: ProgressDialog? = null
 
-    private fun initProgressBar() = indeterminateProgressDialog(message = "Loading...") {
+    private fun initProgressBar() = ProgressDialog(this).apply {
+        isIndeterminate = true
+        setMessage("Loading...")
         setOnDismissListener { viewModel.onProgressDialogDismissed() }
     }
 
@@ -30,13 +31,13 @@ abstract class BaseViewModelActivity<T : BaseViewModel> : BaseActivity() {
         super.onCreate(savedInstanceState)
         val viewModelFactory = getViewModelFactory()
         viewModel = if (viewModelFactory != null) {
-            ViewModelProviders.of(this, viewModelFactory).get(viewModelClass)
+            ViewModelProvider(this, viewModelFactory).get(viewModelClass)
         } else {
-            ViewModelProviders.of(this).get(viewModelClass)
+            ViewModelProvider(this).get(viewModelClass)
         }
         viewModel.apply {
-            toastEvent.observe { str -> str?.let { toast(it) } }
-            longToastEvent.observe { str -> str?.let { longToast(it) } }
+            toastEvent.observe { str -> str?.let { CyxbsToast.makeText(baseContext, it, Toast.LENGTH_SHORT).show() } }
+            longToastEvent.observe { str -> str?.let { CyxbsToast.makeText(baseContext, it, Toast.LENGTH_LONG).show() } }
             progressDialogEvent.observe {
                 it ?: return@observe
                 //确保只有一个对话框会被弹出

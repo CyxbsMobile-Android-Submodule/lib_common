@@ -2,15 +2,13 @@ package com.mredrock.cyxbs.common.ui
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import com.mredrock.cyxbs.common.component.CyxbsToast
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.common.viewmodel.event.ProgressDialogEvent
-import org.jetbrains.anko.support.v4.indeterminateProgressDialog
-import org.jetbrains.anko.support.v4.longToast
-import org.jetbrains.anko.support.v4.toast
 
 /**
  * Created By jay68 on 2018/8/23.
@@ -22,7 +20,9 @@ abstract class BaseViewModelFragment<T : BaseViewModel> : BaseFragment() {
 
     private var progressDialog: ProgressDialog? = null
 
-    private fun initProgressBar() = indeterminateProgressDialog(message = "Loading...") {
+    private fun initProgressBar() = ProgressDialog(context).apply {
+        isIndeterminate = true
+        setMessage("Loading...")
         setOnDismissListener { viewModel.onProgressDialogDismissed() }
     }
 
@@ -30,13 +30,13 @@ abstract class BaseViewModelFragment<T : BaseViewModel> : BaseFragment() {
         super.onCreate(savedInstanceState)
         val viewModelFactory = getViewModelFactory()
         viewModel = if (viewModelFactory != null) {
-            ViewModelProviders.of(this, viewModelFactory).get(viewModelClass)
+            ViewModelProvider(this, viewModelFactory).get(viewModelClass)
         } else {
-            ViewModelProviders.of(this).get(viewModelClass)
+            ViewModelProvider(this).get(viewModelClass)
         }
         viewModel.apply {
-            toastEvent.observe { str -> str?.let { toast(it) } }
-            longToastEvent.observe { str -> str?.let { longToast(it) } }
+            toastEvent.observe { str -> str?.let { CyxbsToast.makeText(context, it, Toast.LENGTH_SHORT).show() } }
+            longToastEvent.observe { str -> str?.let { CyxbsToast.makeText(context, it, Toast.LENGTH_LONG).show() } }
             progressDialogEvent.observe {
                 it ?: return@observe
                 //确保只有一个对话框会被弹出
@@ -53,7 +53,10 @@ abstract class BaseViewModelFragment<T : BaseViewModel> : BaseFragment() {
     protected open fun getViewModelFactory(): ViewModelProvider.Factory? = null
 
     inline fun <T> LiveData<T>.observe(crossinline onChange: (T?) -> Unit) = observe(this@BaseViewModelFragment, Observer { onChange(value) })
-
+    inline fun <T> LiveData<T>.observeNotNull(crossinline onChange: (T) -> Unit) = observe(this@BaseViewModelFragment, Observer {
+        it ?: return@Observer
+        onChange(it)
+    })
 
     override fun onDestroyView() {
         super.onDestroyView()
